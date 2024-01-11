@@ -1,0 +1,23 @@
+if(isset($_POST['username'])&&isset($_POST['password'])){
+
+    $username = $_POST['username'];
+	$password = $_POST['password'];
+    if(!empty($username)&&!empty($password)){
+$sql="SELECT ID FROM registration_details WHERE username='$username' AND password='$password'";
+$sql_query = mysqli_query($con,$sql);
+$mysquli_num_rows = $mysquli_num_rows($sql_query);
+if($mysquli_num_rows){
+    //echo 'login successfull';
+    header('location:login.php');
+
+}else{
+    echo 'Invalid username or password!';
+}
+
+
+    }else{
+        echo 'Fill up all fields! ';
+    }
+
+}
+	
